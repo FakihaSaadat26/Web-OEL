@@ -1,0 +1,339 @@
+.admin-console {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(17, 25, 40, 0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0, 245, 212, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 212, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cyber corner effects */
+.admin-console::before,
+.admin-console::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00f5d4;
+  opacity: 0.5;
+}
+
+.admin-console::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.admin-console::after {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.cyber-header {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.cyber-header h2 {
+  margin-bottom: 0;
+  color: #00f5d4;
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+}
+
+.cyber-lines {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 2px;
+  background: #00f5d4;
+  opacity: 0.5;
+}
+
+.cyber-lines::before,
+.cyber-lines::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #00f5d4;
+  top: -3px;
+}
+
+.cyber-lines::before {
+  left: 0;
+}
+
+.cyber-lines::after {
+  right: 0;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(17, 25, 40, 0.3);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #e2e8f0;
+  transition: all 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #00f5d4;
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+}
+
+.form-group input::placeholder {
+  color: #64748b;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"] {
+  flex: 2;
+  background: rgba(0, 245, 212, 0.1);
+  color: #00f5d4;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: rgba(0, 245, 212, 0.2);
+  border-color: #00f5d4;
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+}
+
+button[type="submit"]:disabled {
+  background: rgba(148, 163, 184, 0.1);
+  color: #64748b;
+  cursor: not-allowed;
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+.test-button {
+  flex: 1;
+  background: rgba(148, 163, 184, 0.1);
+  color: #94a3b8;
+}
+
+.test-button:hover {
+  background: rgba(148, 163, 184, 0.2);
+  color: #e2e8f0;
+}
+
+/* Scanner line effect for buttons */
+button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(0, 245, 212, 0) 20%, 
+    rgba(0, 245, 212, 0.5) 50%,
+    rgba(0, 245, 212, 0) 80%, 
+    transparent 100%);
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+button:hover::after {
+  opacity: 1;
+  animation: scan 1.5s linear infinite;
+}
+
+.status-message {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in;
+  background: rgba(17, 25, 40, 0.3);
+  border: 1px solid rgba(0, 245, 212, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.status-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.status-message.success {
+  color: #00f5d4;
+  border-color: rgba(0, 245, 212, 0.3);
+}
+
+.status-message.error {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.last-submission,
+.recent-submissions {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(17, 25, 40, 0.3);
+  border-radius: 4px;
+  border: 1px solid rgba(0, 245, 212, 0.1);
+  position: relative;
+}
+
+.last-submission h3,
+.recent-submissions h3 {
+  color: #00f5d4;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.last-submission h3::before,
+.recent-submissions h3::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: #00f5d4;
+  opacity: 0.8;
+}
+
+.submission-details,
+.submission-item {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  padding: 0.75rem;
+  border-radius: 4px;
+  background: rgba(17, 25, 40, 0.4);
+  border: 1px solid rgba(0, 245, 212, 0.1);
+}
+
+.submission-item {
+  margin-bottom: 0.75rem;
+  transition: all 0.3s;
+}
+
+.submission-item:hover {
+  border-color: rgba(0, 245, 212, 0.3);
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.1);
+}
+
+.submission-item:last-child {
+  margin-bottom: 0;
+}
+
+.submission-item p {
+  margin: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.label {
+  color: #00f5d4;
+  opacity: 0.8;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-family: 'Space Mono', monospace;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(0, 245, 212, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .admin-console {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  button[type="submit"],
+  .test-button {
+    width: 100%;
+  }
+
+  .form-group input {
+    font-size: 16px; /* Prevent zoom on mobile */
+  }
+} 
